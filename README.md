@@ -27,6 +27,7 @@ X_train, X_test, y_train, y_test = train_test_split(all_X_data, all_y_data, test
 ```
 
 
+![download](https://github.com/user-attachments/assets/8ff85b44-b242-4e9f-85aa-2d2fd72a2bfc)
 
 
 ### LSTM model used for training 
