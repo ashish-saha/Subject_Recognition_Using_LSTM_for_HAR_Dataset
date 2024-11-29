@@ -1,5 +1,31 @@
 # Activity and Subject Recognition Using LSTM for HAR Dataset by UCI
 
+I am using Human Activity recognition dataset with by UCI (https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones) for my experiments. The Human Activity Recognition database was built from the recordings of participants performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors. The objective is to classify activities into one of the six activities performed
+- WALKING
+- WALKING_UPSTAIRS
+- WALKING_DOWNSTAIRS
+- SITTING
+- LAYING
+- STANDING
+ 
+There were 30 participants and each person performed the activities wearing a smartphone (Samsung Galaxy s2) on their waist. The dataset has 10299 entries & 561 features divided into train and test for classification purposes 
+
+#### There are two major problem that we identified with the HAR dataset
+- Majority of prior research on HAR dataset focuses on activity recognition, but we plan to use to the dataset to recognize the activity and subject performing the activity
+- There is also very little research on how to deal with missing sensor data. In real life sensors fail thus making it difficult to do any sort of prediction  
+
+#### Evaluation
+- I used LSTM to do both classification. Look at the results here 
+    - Activity recognition was straightforward 93% accuracy
+    - Subject recognition was tricky The UCI HAR dataset is primarily designed for activity recognition, not subject recognition. While it does include subject identifiers, the distribution of subjects between the training (21 subjects) and testing (9 subjects) datasets is uneven, with no explicit focus on ensuring uniform subject representation across both sets. So I combines both train and test set and split the data so both train and test have all 30 subjects. I did the split 80/20. The accuracy was 80% which is good since random would have been 1/30=3.3%
+        - If we look at the subject class accuracy per activity then the picture becomes much more clear. For all subjects its the sitting, standing and laying classes thats causing issues. Since these are stationary activity it might look very similar across all subjects (Look at my github for charts)
+
+#### Missing Data Simulation
+- The dataset is sampled at 50 HZ. So 50 times per second. And out of the 562 features, 345 were related to accelerometer and 213 were related to gyroscope. My whole idea was for a couple of seconds (it could be 1-10 seconds) one of the sensor fails. For example 5 seconds of accelerometer data went missing and 5 seconds of accelerometer data went missing. I used “SimpleImputer” and “KNNImputer” with and without PCA (principal component analysis) to fill in the missing data and then use the model to evaluate. 
+    - For activity recognition baseline accuracy was 93 %, with missing data the accuracy was 78% and with imputed data with 90 % (not bad)
+    - For activity recognition baseline accuracy was 80 %, with missing data the accuracy was 61% and with imputed data with 73 % (also not that bad)
+
+
 
 ## LSTM model used for training both Activity recognition and subject recognition
 
