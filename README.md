@@ -25,7 +25,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
 #### Total number for component for PCA was `175`			
 
-| Feature | Missing Data (%) | Baseline Accuracy | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
+| Feature | Missing Data cells (%) | Accuracy with missing data | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
 |---|---|---|---|---|---|---|
 | 1 Second ACC & 1 Second Gyro (5 intervals) | 12.07 | 0.7814 | 0.9026 | 0.8924 | 0.8988 | 0.8897 |
 | 5 Second ACC & 5 Second Gyro (1 interval) | 12.06 | 0.7729 | 0.8931 | 0.8900 | 0.8907 | 0.8870 |
@@ -75,7 +75,7 @@ X_train, X_test, y_train, y_test = train_test_split(all_X_data, all_y_data, test
 #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
 #### Total number for component for PCA was `175`			
 
-| Feature | Missing Data (%) | Baseline Accuracy | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
+| Feature | Missing Data cells (%) | Accuracy with missing data | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
 |---|---|---|---|---|---|---|
 | 1 Second ACC & 1 Second Gyro (5 intervals) | 12.06 | 0.6165 | 0.6383 | 0.7359 | 0.6325 | 0.7281 |
 | 5 Second ACC & 5 Second Gyro (1 interval) | 12.06 | 0.6189 | 0.6402 | 0.7364 | 0.6339 | 0.7364 |
