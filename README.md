@@ -17,6 +17,7 @@ model.add(Dense(y_train.shape[1], activation = 'softmax'))
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 ```
+![Screenshot 2024-11-29 at 11 51 15 AM](https://github.com/user-attachments/assets/a91c4ad4-8d5b-42db-baf5-73372e31a3cf)
 
 
 ## Activity Recognition			
