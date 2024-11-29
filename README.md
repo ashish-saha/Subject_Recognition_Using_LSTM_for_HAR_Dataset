@@ -38,7 +38,8 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 | 10 Seconds Gyro (1 interval) | 9.22 | 0.7787 | 0.9389 | 0.9300 | 0.9375 | 0.9267 |
 
 
-![class accuracy with imputed data](https://github.com/user-attachments/assets/a3cedf35-c858-4a7d-9572-8ee10a051bbe)
+
+![download_4](https://github.com/user-attachments/assets/423c3d81-8195-40e8-ac30-d5af8c530212)
 
 
 ## Subject Recognition			
@@ -91,4 +92,8 @@ If we look at the subject class accuracy per activity then the picture becomes m
 | 5 Second ACC (2 intervals) | 14.91 | 0.6135 | 0.6378 | 0.7383 | 0.6310 | 0.7276 |
 | 5 Second Gyro (2 intervals) | 9.21 | 0.6169 | 0.6461 | 0.7504 | 0.6412 | 0.7456 |
 | 10 Seconds ACC (1 interval) | 14.91 | 0.6145 | 0.6349 | 0.7388 | 0.6276 | 0.7325 |
+
+![download_5](https://github.com/user-attachments/assets/47f8fbd9-6f8a-44e7-8a31-d52b79040e64)
+
+
 | 10 Seconds Gyro (1 interval) | 9.21 | 0.6165 | 0.6538 | 0.7524 | 0.6432 | 0.7475 |
