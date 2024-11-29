@@ -1,5 +1,44 @@
-# Subject_Recognition_Using_LSTM_for_HAR_Dataset
+# Activity and Subject Recognition Using LSTM for HAR Dataset by UCI
 
+
+## LSTM model used for training both Activity recognition and subject recognition
+
+```
+from keras.models import Sequential
+from keras.layers import LSTM, Dense, Conv2D, MaxPooling2D, Flatten, Dropout
+
+
+model = Sequential()
+# RNN layer
+model.add(LSTM(units = 128, input_shape = (X_train.shape[1], X_train.shape[2])))
+model.add(Dropout(0.2))
+model.add(Dense(units = 64, activation='relu'))
+model.add(Dense(y_train.shape[1], activation = 'softmax'))
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+```
+
+
+## Activity Recognition			
+--------------------------------
+#### Test Accuracy with no missing data is `0.9389`			
+#### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
+#### Total number for component for PCA was `175`			
+
+| Feature | Missing Data (%) | Baseline Accuracy | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
+|---|---|---|---|---|---|---|
+| 1 Second ACC & 1 Second Gyro (5 intervals) | 12.07 | 0.7814 | 0.9026 | 0.8924 | 0.8988 | 0.8897 |
+| 5 Second ACC & 5 Second Gyro (1 interval) | 12.06 | 0.7729 | 0.8931 | 0.8900 | 0.8907 | 0.8870 |
+| 5 Second ACC (2 intervals) | 14.91 | 0.7811 | 0.8629 | 0.9117 | 0.8612 | 0.9104 |
+| 5 Second Gyro (2 intervals) | 9.22 | 0.7798 | 0.9365 | 0.9365 | 0.9348 | 0.9338 |
+| 10 Seconds ACC (1 interval) | 14.91 | 0.7940 | 0.8836 | 0.9277 | 0.8812 | 0.9263 |
+| 10 Seconds Gyro (1 interval) | 9.22 | 0.7787 | 0.9389 | 0.9300 | 0.9375 | 0.9267 |
+
+
+## Subject Recognition			
+--------------------------------
+
+FOr Subject recognition we have to modify the data. In the data there are a total of 30 subjects but the training data has 21 subject and test data habe 9 subjects, which is not ideal for doing subject recognition. We need a sataset where we would have all 30 subjects in both train and test set. So I have done the following to combine and split the data.
 
 ### Creation of new test set by combining all data
 
@@ -30,29 +69,17 @@ X_train, X_test, y_train, y_test = train_test_split(all_X_data, all_y_data, test
 ![download](https://github.com/user-attachments/assets/8ff85b44-b242-4e9f-85aa-2d2fd72a2bfc)
 
 
-### LSTM model used for training 
+## Subject Detection			
+--------------------------------
+#### Test Accuracy with no missing data is `0.8019`
+#### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
+#### Total number for component for PCA was `175`			
 
-```
-from keras.models import Sequential
-from keras.layers import LSTM, Dense, Conv2D, MaxPooling2D, Flatten, Dropout
-
-
-model = Sequential()
-# RNN layer
-model.add(LSTM(units = 128, input_shape = (X_train.shape[1], X_train.shape[2])))
-model.add(Dropout(0.2))
-model.add(Dense(units = 64, activation='relu'))
-model.add(Dense(y_train.shape[1], activation = 'softmax'))
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-```
-
-
-### Accuracy for predecting 30 subjects accross dataset
-
-| Models    | Training | Validation | Test |
-| -------- | ------- | -------- | ------- |
-| LogisticRegression  | 85.8%    | | 68.1% |
-| SGD | 65.8%     | | 55.9% |
-| Deep Learning (CNN)    | 73.7%   | 69.5% | 69.53% |
-| Deep Learning (LSTM)    | 64.3%    | 63.3% | 66.58% |
+| Feature | Missing Data (%) | Baseline Accuracy | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
+|---|---|---|---|---|---|---|
+| 1 Second ACC & 1 Second Gyro (5 intervals) | 12.06 | 0.6165 | 0.6383 | 0.7359 | 0.6325 | 0.7281 |
+| 5 Second ACC & 5 Second Gyro (1 interval) | 12.06 | 0.6189 | 0.6402 | 0.7364 | 0.6339 | 0.7364 |
+| 5 Second ACC (2 intervals) | 14.91 | 0.6135 | 0.6378 | 0.7383 | 0.6310 | 0.7276 |
+| 5 Second Gyro (2 intervals) | 9.21 | 0.6169 | 0.6461 | 0.7504 | 0.6412 | 0.7456 |
+| 10 Seconds ACC (1 interval) | 14.91 | 0.6145 | 0.6349 | 0.7388 | 0.6276 | 0.7325 |
+| 10 Seconds Gyro (1 interval) | 9.21 | 0.6165 | 0.6538 | 0.7524 | 0.6432 | 0.7475 |
