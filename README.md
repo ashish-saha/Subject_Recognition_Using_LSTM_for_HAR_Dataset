@@ -25,8 +25,10 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 ### Test Accuracy with no missing data is `0.9389`			
 ![class accuracy activity](https://github.com/user-attachments/assets/90c8a979-f639-4d6e-888c-a560c0e02c20)
 
-#### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
-#### Total number for component for PCA was `175`			
+### Accuracy with simulated missing Data
+
+ - #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%` for all experiments (its always 10 seconds of data in total missing)			
+ - #### Total number for component for PCA was `175`			
 
 | Feature | Missing Data cells (%) | Accuracy with missing data | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
 |---|---|---|---|---|---|---|
@@ -81,9 +83,10 @@ If we look at the subject class accuracy per activity then the picture becomes m
 
 ![suject accuracy per activity ](https://github.com/user-attachments/assets/5ca0ed9c-6f02-48c0-95e5-8fa3498d90b5)
 
+### Accuracy with simulated missing Data
 
-#### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
-#### Total number for component for PCA was `175`			
+ - #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%` for all experiments (its always 10 seconds of data in total missing)			
+ - #### Total number for component for PCA was `175`			
 
 | Feature | Missing Data cells (%) | Accuracy with missing data | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
 |---|---|---|---|---|---|---|
