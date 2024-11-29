@@ -22,7 +22,9 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 ## Activity Recognition			
 --------------------------------
-#### Test Accuracy with no missing data is `0.9389`			
+### Test Accuracy with no missing data is `0.9389`			
+![class accuracy activity](https://github.com/user-attachments/assets/90c8a979-f639-4d6e-888c-a560c0e02c20)
+
 #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
 #### Total number for component for PCA was `175`			
 
@@ -34,6 +36,9 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 | 5 Second Gyro (2 intervals) | 9.22 | 0.7798 | 0.9365 | 0.9365 | 0.9348 | 0.9338 |
 | 10 Seconds ACC (1 interval) | 14.91 | 0.7940 | 0.8836 | 0.9277 | 0.8812 | 0.9263 |
 | 10 Seconds Gyro (1 interval) | 9.22 | 0.7787 | 0.9389 | 0.9300 | 0.9375 | 0.9267 |
+
+
+![class accuracy with imputed data](https://github.com/user-attachments/assets/a3cedf35-c858-4a7d-9572-8ee10a051bbe)
 
 
 ## Subject Recognition			
@@ -67,12 +72,15 @@ X_train, X_test, y_train, y_test = train_test_split(all_X_data, all_y_data, test
 ```
 
 
-![download](https://github.com/user-attachments/assets/8ff85b44-b242-4e9f-85aa-2d2fd72a2bfc)
+### Test Accuracy with no missing data is `0.8019`
+
+![Subject detection class accuracy](https://github.com/user-attachments/assets/d60db02d-1abf-440b-bc4c-5e4b0cd333fe)
+
+If we look at the subject class accuracy per activity then the picture becomes much more clear. For all subjects its the sitting standing and laying thats causing issues. Since these are stationary activity it might look very similar across all subjects 
+
+![suject accuracy per activity ](https://github.com/user-attachments/assets/5ca0ed9c-6f02-48c0-95e5-8fa3498d90b5)
 
 
-## Subject Detection			
---------------------------------
-#### Test Accuracy with no missing data is `0.8019`
 #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%`			
 #### Total number for component for PCA was `175`			
 
