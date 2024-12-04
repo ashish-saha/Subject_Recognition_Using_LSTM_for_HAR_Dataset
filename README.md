@@ -53,7 +53,7 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 ### Accuracy with simulated missing Data
 
- - #### Percentage of rows with some missing sensor data is `500/2060 = 24.27%` for all experiments (its always 10 seconds of data in total missing)			
+ - #### Percentage of rows with some missing sensor data is `(10*50)/2060 = 24.27%` for all experiments (its always 10 seconds of data in total missing)			
  - #### Total number for component for PCA was `175`			
 
 | Feature | Missing Data cells (%) | Accuracy with missing data | Simple Imputer Accuracy | KNN Imputer Accuracy | Simple Imputer + PCA Accuracy | KNN Imputer + PCA Accuracy |
